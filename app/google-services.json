@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "720028848778",
+    "project_id": "agentapro-e0f33",
+    "storage_bucket": "agentapro-e0f33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720028848778:android:e2504cb7ea166021cc1373",
+        "android_client_info": {
+          "package_name": "com.dimitrisligi.agentapro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720028848778-8pi5itc137s3bbcj5uufac57g2qj6ifl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9UFGdZtdRQOuX9cdv4ZEBZ-pJQHhfgb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720028848778-8pi5itc137s3bbcj5uufac57g2qj6ifl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
