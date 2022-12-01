@@ -12,22 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val email: String = "remalious@gmail.com"
-        val pass: String = "12345678"
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,pass)
-            .addOnCompleteListener {
-                if(!it.isSuccessful) return@addOnCompleteListener
-                Log.d("MainActivity","A new user was created")
-            }
 
-        binding.btnRegister.setOnClickListener {
-            val email: String = "remalious@gmail.com"
-            val pass: String = "12345678"
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,pass)
-                .addOnCompleteListener {
-                    if(!it.isSuccessful) return@addOnCompleteListener
-                    Log.d("MainActivity","A new user was created with uid:${it.result.user?.uid}")
-                }
-        }
     }
 }
