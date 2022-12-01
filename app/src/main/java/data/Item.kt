@@ -1,8 +1,7 @@
 package data
 
-import enums.MotorBrand
-import enums.MotorNm
+import classes.Motor
 
-sealed class Item(val itemID: String){
-    data class Motor(val motorBrand: MotorBrand, val motorNm: MotorNm)
+data class Item<T>(val itemID: String,val item: T){
+
 }
