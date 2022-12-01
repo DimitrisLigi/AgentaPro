@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AgentaPro</string>
+    <string name="str_email">Email</string>
+    <string name="str_login_GR">Είσοδος</string>
 </resources>

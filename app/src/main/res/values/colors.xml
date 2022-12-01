@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Mine -->
+    <color name="lvl01">#343d46</color>
+    <color name="lvl02">#4f5b66</color>
+    <color name="lvl03">#65737e</color>
+    <color name="lvl04">#a7adba</color>
+    <color name="lvl05">#c0c5ce</color>
+
 </resources>
