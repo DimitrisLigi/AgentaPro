@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_drawable"
+    tools:context=".LoginActivity">
+
+    <EditText
+        android:id="@+id/et_email_login_activity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/text_drawable"
+        android:drawableStart="@drawable/ic_email"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/str_email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@+id/tv_logo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_logo"
+        app:layout_constraintTop_toBottomOf="@+id/tv_login_text_banner" />
+
+    <TextView
+        android:id="@+id/tv_logo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:text="LOGO HERE"
+        android:textAlignment="center"
+        android:textColor="@color/lvl05"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_password_login_activity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/text_drawable"
+        android:drawableStart="@drawable/ic_security"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/et_email_login_activity"
+        app:layout_constraintStart_toStartOf="@+id/et_email_login_activity"
+        app:layout_constraintTop_toBottomOf="@+id/et_email_login_activity" />
+
+    <TextView
+        android:id="@+id/tv_login_text_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingStart="3dp"
+        android:text="@string/str_login_GR"
+        android:textColor="@color/lvl05"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_logo"
+        app:layout_constraintStart_toStartOf="@+id/tv_logo"
+        app:layout_constraintTop_toBottomOf="@+id/tv_logo" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_drawable"
+        android:clickable="true"
+        android:text="@string/str_login_GR"
+        android:textColor="#E8DFDF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/et_password_login_activity"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_password_login_activity"
+        app:layout_constraintTop_toBottomOf="@+id/et_password_login_activity" />
+
+    <TextView
+        android:id="@+id/btn_forgot_my_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Ξέχασα τον κωδικό μου."
+        android:textColor="#C5CDDA"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_login"
+        app:layout_constraintStart_toStartOf="@+id/btn_login"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="btn_forgot_my_password"
+        tools:layout_editor_absoluteY="545dp" />
+
+    <TextView
+        android:id="@+id/btn_sign_up"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/str_press_here_to_register"
+        android:textAlignment="center"
+        android:textColor="#C5CDDA"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_login"
+        app:layout_constraintStart_toStartOf="@+id/btn_login" />
+</androidx.constraintlayout.widget.ConstraintLayout>
