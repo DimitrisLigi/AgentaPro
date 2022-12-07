@@ -6,9 +6,17 @@ import android.os.Bundle
 import android.widget.Toast
 import com.dimitrisligi.agentapro.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
+import data.User
 
 class SignUp : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
+
+    private var generatedUser: User? = null
+
+    //Fields
+    private var _name: String? = null
+    private var _lastname: String? = null
+    private var _email: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,30 +29,34 @@ class SignUp : AppCompatActivity() {
 
     }
 
-    private fun registerNewUserToFirebase(email: String, password: String){
+    private fun registerNewUserToFirebase(email: String, password: String, name: String, lastname: String){
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                if (!it.isSuccessful){
+            .addOnCompleteListener {  authResult ->
+                if (!authResult.isSuccessful){
                     return@addOnCompleteListener
                 }
+                generatedUser = User(authResult.result.user!!.uid,name,lastname,email,null,null)
                 toastSomething(getString(R.string.str_register_successful))
-                //Starting MAIN ACTIVITY
-                startActivity(Intent(this,MainActivity::class.java))
+                Intent(this,MainActivity::class.java).also {
+                    it.putExtra("user_name", name)
+                    it.putExtra("user_lastname", lastname)
+                    it.putExtra("user_email", email)
+                    it.putExtra("user_UID", authResult.result.user!!.uid)
+                    startActivity(it)
+                }
             }.addOnFailureListener {
                 toastSomething(it.message.toString())
             }
     }
 
     private fun checkIfFieldAreCorrect() {
-        val name: String = binding.etUserName.text.toString().trim()
-        val lastname: String = binding.etUserLastname.text.toString().trim()
-        val email: String = binding.etUserEmail.text.toString().trim()
-        val password: String = binding.etUserPassword.text.toString().trim()
-        val passwordVerification: String = binding.etUserPasswordRepeat.text.toString().trim()
+        _name = binding.etUserName.text.toString().trim()
+        _lastname = binding.etUserLastname.text.toString().trim()
+        _email = binding.etUserEmail.text.toString().trim()
 
-        if(binding.etUserName.text.isNullOrBlank()
-            || binding.etUserLastname.text.isNullOrBlank()
-            || binding.etUserEmail.text.isNullOrBlank()
+        if(_name.isNullOrBlank()
+            || _lastname.isNullOrBlank()
+            || _email.isNullOrBlank()
             || binding.etUserPassword.text.isNullOrBlank()
             || binding.etUserPasswordRepeat.text.isNullOrBlank()){
             toastSomething(getString(R.string.str_one_of_the_fields_is_empty))
@@ -53,7 +65,10 @@ class SignUp : AppCompatActivity() {
                 toastSomething("Οι κωδικοί που δώσατε δεν ταιριάζουν μεταξύ τους παρακαλώ ξαναπροσπαθήστε")
             return
         }else{
-                registerNewUserToFirebase(email, password)
+            //---------Creating a new  User to firebase------------
+            registerNewUserToFirebase(_email!!, binding.etUserPassword.text.toString().trim(),
+                _name!!, _lastname!!
+            )
         }
     }
 
