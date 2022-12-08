@@ -12,12 +12,14 @@ class LoginActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        firebaseAuth = FirebaseAuth.getInstance()
         setUpViews()
     }
 
@@ -25,6 +27,26 @@ class LoginActivity : AppCompatActivity() {
         binding.btnSignUp.setOnClickListener {
             startActivity(Intent(this,SignUp::class.java))
         }
+        binding.btnLogin.setOnClickListener {
+           login()
+        }
+    }
+    private fun login(){
+        val email = binding.etEmailLoginActivity.text.toString().trim()
+        val password = binding.etPasswordLoginActivity.text.toString().trim()
+        firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener { auth ->
+            if (!auth.isSuccessful){
+                return@addOnCompleteListener
+            }
+            val myIntent = Intent(this, MainActivity::class.java)
+            toastAMessage("Ola kala")
+            startActivity(myIntent)
+        }.addOnFailureListener {
+            toastAMessage(it.message.toString())
+        }
     }
 
+    private fun toastAMessage(message: String){
+        Toast.makeText(this,message, Toast.LENGTH_LONG).show()
+    }
 }
