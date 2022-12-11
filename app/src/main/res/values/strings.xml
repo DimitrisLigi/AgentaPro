@@ -2,17 +2,23 @@
     <string name="app_name">AgentaPro</string>
     <string name="str_email">Email</string>
     <string name="str_login_GR">Είσοδος</string>
-    <string name="str_sign_up_GR">Εγγραφή</string>
+    <string name="str_register_GR">Εγγραφη</string>
     <string name="str_please_fill_up_your_details">Παρακαλούμε συμπληρώστε τα στοιχεία σας</string>
     <string name="str_name_GR">Όνομα</string>
     <string name="str_lastname_GR">Επίθετο</string>
     <string name="str_password_GR">Kωδικός</string>
     <string name="str_repeat_password_GR">Επαλλήθευση κωδικού</string>
+    <string name="str_get_incoming_phone_number_GR"><u>Επικόλληση τηλεφωνικού αριθμού απο κλήση</u></string>
     <string name="str_press_here_to_register">Δεν έχετε λογαριασμο; Πατήστε εδώ για να εγγραφήτε</string>
     <string name="str_by_pressing_register_you_accept">Πατώντας εγγραφή αποδέχεστε τους </string>
-    <string name="str_terms_of_use">Όρους χρήσης</string>
+    <string name="str_terms_of_use"><u>Όρους χρήσης</u></string>
     <string name="str_register_successful">Η εγγραφή ολοκληρώθηκε με επιτυχία</string>
     <string name="str_one_of_the_fields_is_empty">Ένα απο τα πεδία είναι κενό</string>
+    <string name="str_client_registration_GR">Φόρμα πελάτη</string>
+    <string name="str_please_fill_out_clients_details_GR">Παρακαλώ συμπληρώστε τα στοχεία του πελάτη</string>
+    <string name="str_address_GR">Διεύθυνση</string>
+    <string name="str_telephone_GR">Τηλέφωνο</string>
+    <string name="str_create_new_client_GR">Δημιουργία νέου πελάτη</string>
 
 
 </resources>

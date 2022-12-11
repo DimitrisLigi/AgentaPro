@@ -3,19 +3,19 @@ package com.dimitrisligi.agentapro
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.dimitrisligi.agentapro.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
+import data.Appointment
+import data.Client
 import data.User
 import utils.Utilities
 
-class SignUp : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
 
 
@@ -77,11 +77,22 @@ class SignUp : AppCompatActivity() {
                 if (!authResult.isSuccessful){
                     return@addOnCompleteListener
                 }
-                _generatedUser = User(authResult.result.user!!.uid,name,lastname,email,null,null)
-                // First database
-//                saveUserToFirebaseDatabase()
+                //Creating new user
+                _generatedUser = User(authResult.result.user!!.uid,
+                    name,
+                    lastname,
+                    email,
+                    null,
+                    null)
+                //Creating empty client and appointment List
+                val tempClientList = mutableListOf<Client>()
+                val tempAppointmentList = mutableListOf<Appointment>()
+                _generatedUser!!.appointmentList = tempAppointmentList
+                _generatedUser!!.clientList = tempClientList
+                //First database
+                saveUserToFirebaseDatabase()
                 // Second database
-                saveUserToFirebaseFirestore(_generatedUser)
+                //saveUserToFirebaseFirestore(_generatedUser)
                 toastSomething(getString(R.string.str_register_successful))
                 Intent(this,MainActivity::class.java).also {
                     startActivity(it)
@@ -105,8 +116,8 @@ class SignUp : AppCompatActivity() {
 
     private fun saveUserToFirebaseFirestore(user: User?){
         if(user == null) return
-        val db = Firebase.storage(Utilities.FIREBASE_STORAGE).reference
-        val userStorageRef: StorageReference? = db.child("myUsers")
+        val db = Firebase.storage(Utilities.FIREBASE_STORAGE).getReference("myUsers")
+        val userStorageRef: StorageReference? = db.child("Clients")
     }
 
     private fun toastSomething(message: String){

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="str_client_registration_GR">Φόρμα πελάτη</string>
+    <string name="str_please_fill_out_clients_details_GR">Παρακαλώ συμπληρώστε τα στοχεία του πελάτη</string>
+    <string name="str_address_GR">Διεύθυνση</string>
+    <string name="str_create_new_client_GR">Δημιουργία νέου πελάτη</string>
+</resources>
