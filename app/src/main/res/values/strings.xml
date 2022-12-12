@@ -2,7 +2,7 @@
     <string name="app_name">AgentaPro</string>
     <string name="str_email">Email</string>
     <string name="str_login_GR">Είσοδος</string>
-    <string name="str_register_GR">Εγγραφη</string>
+    <string name="str_register_GR">Εγγραφή</string>
     <string name="str_please_fill_up_your_details">Παρακαλούμε συμπληρώστε τα στοιχεία σας</string>
     <string name="str_name_GR">Όνομα</string>
     <string name="str_lastname_GR">Επίθετο</string>
